@@ -49,7 +49,7 @@ void callback(AdafruitIO_Data *data)    // funcao realizado quando receber dados
   if(data->toInt() == 1) {
     // Em bibliotec A2a:
     // #define qtdVar 10
-    // uint8_t varIntegr[qtdVar];
+    // uint8_t varIntegr[qtdVar]; (array com valor compartilhado entre arduino e esp)
     // void A2a::varWireWrite(uint8_t address, uint8_t variavel, uint8_t valor);
     // void A2a::varWireWrite(uint8_t address(endereco do arduino), uint8_t variavel(index do array), uint8_t valor);
     
