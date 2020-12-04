@@ -4,10 +4,10 @@
 #include "config.h"
 #define address 0x08    // endereco configurado igual do arduino
 
-// feeds adafruit
+// configiuracao de feeds do adafruit, nome do feeds e 'button'
 AdafruitIO_Feed *button = io.feed("button");
 
-// comunicacao com slave arduino
+// comunicacao com arduino como slave
 A2a ConexaoComArduino;
 
 void setup()
@@ -45,7 +45,15 @@ void loop()
 
 void callback(AdafruitIO_Data *data)    // funcao realizado quando receber dados do portal Adafruit
 {
-  if(data->toInt() == 1) {    // quando botao for acionado no portal Adafruit envia valor '1'
+  // quando botao for acionado no portal Adafruit
+  if(data->toInt() == 1) {
+    // Em bibliotec A2a:
+    // #define qtdVar 10
+    // uint8_t varIntegr[qtdVar];
+    // void A2a::varWireWrite(uint8_t address, uint8_t variavel, uint8_t valor);
+    // void A2a::varWireWrite(uint8_t address(endereco do arduino), uint8_t variavel(index do array), uint8_t valor);
+    
+    // envia pro arduino o valor recebido = 1 no index [0]
     ConexaoComArduino.varWireWrite(address, 0, byte(data->toInt()));    // notifica arduino q botao foi acionado 
   }
 }
