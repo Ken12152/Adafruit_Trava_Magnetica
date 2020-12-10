@@ -181,23 +181,6 @@ void loop()
 
 
 
-  ///////////////////////// from Adafruit  /////////////////////////
-  if(unlockFromAdafruit == true) {
-    
-    //////////////////// Button Pressionado ////////////////////
-    ///// Insere aqui codigo pra executar quando pressionar botao do Adafruit /////
-    
-    Serial.println(F("Botao Pressionado no Adafruit"));
-    Serial.println(F("-----------------------------"));
-
-    granted(300);
-    
-    unlockFromAdafruit = false;
-  }
-  //////////////////////////////////////////////////////////////////
-
-
-
   /////////////// Leitura do cartao ///////////////
   // Variable integer to keep if we have Successful Read from Reader
   uint8_t successRead = getID();
@@ -261,6 +244,23 @@ void loop()
     }
   }
   
+
+
+  ///////////////////////// from Adafruit  /////////////////////////
+  if(unlockFromAdafruit == true) {
+    
+    //////////////////// Button Pressionado ////////////////////
+    ///// Insere aqui codigo pra executar quando pressionar botao do Adafruit /////
+    
+    Serial.println(F("Botao Pressionado no Adafruit"));
+    Serial.println(F("-----------------------------"));
+
+    granted(300);
+    
+    unlockFromAdafruit = false;
+  }
+  //////////////////////////////////////////////////////////////////
+
 
   
   /////////////// Logiaca pra Limpar EEPROM ///////////////
